@@ -52,9 +52,34 @@ jobs:
     #- name: Run tests
     #  run: npm test
 
+    # This step adds the hosting server's SSH key to the known hosts file
+    # It ensures the GitHub Actions runner recognizes and trusts the hosting server during SSH connections
+    # Create the .ssh directory if it doesn't exist
+    # Change the file permissions of the .ssh directory
+    # Add the hosting server's SSH key to the known hosts
+    # Optional: Change the file permissions of the known_hosts file
+    - name: Add HOST SSH Key to Known Hosts
+      run: |
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
+        ssh-keyscan -H ${{ secrets.HOST_SERVER }} >> ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+
+    # This step installs sshpass in the GitHub Actions runner
+    # sshpass is used for non-interactive ssh login, facilitating automation
+    - name: Install sshpass
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y sshpass
+
     # Deployment Step (Placeholder)
     # Include your deployment script here. This part should contain commands to deploy your app
-    # to your hosting provider (like IONOS). Make sure to use GitHub Secrets for sensitive data.
-    # Uncomment and configure this step according to your deployment process.
-    #- name: Deploy to IONOS
-    #  run: ./deploy-to-ionos.sh  # Replace with your deployment script
+    # to your hosting provider. Make sure to use GitHub Secrets for sensitive data.
+    - name: Deploy to host server
+      env:
+        SERVER: ${{ secrets.HOST_SERVER }}
+        USERNAME: ${{ secrets.HOST_USERNAME }}
+        PASSWORD: ${{ secrets.HOST_PASSWORD }}
+        LOCALDIR: 'out'
+        REMOTEDIR: ${{ secrets.HOST_REMOTEDIR }}
+      run: bash deploy.sh
