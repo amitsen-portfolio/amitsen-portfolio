@@ -11,5 +11,6 @@ This is the source code for my personal portfolio website, built with Next.js. I
 Built With
 Next.js - The React framework used
 
-Authors
+## Authors
+
 Amit Sen - Initial work - [Amit Sen](https://www.linkedin.com/in/amit-sen-bb156428/)
