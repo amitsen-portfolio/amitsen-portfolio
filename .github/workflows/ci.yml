@@ -7,9 +7,13 @@ name: CI/CD Pipeline for My Portfolio Website
 # Defines when the workflow will run
 on:
   push:
-    branches: [ master ]  # Triggers the workflow on push events to the master branch
+    branches:
+      - master
+      - feature-*
   pull_request:
-    branches: [ master ]  # Also triggers the workflow on pull requests to the master branch
+    branches:
+      - master
+      - feature-*
   workflow_dispatch:
 
 # Defines the jobs in the workflow
