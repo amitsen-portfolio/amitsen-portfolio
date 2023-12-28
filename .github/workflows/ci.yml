@@ -54,10 +54,16 @@ jobs:
 
     # This step adds the hosting server's SSH key to the known hosts file
     # It ensures the GitHub Actions runner recognizes and trusts the hosting server during SSH connections
-    # Fetch the SSH key of the Host server and add it to known_hosts
+    # Create the .ssh directory if it doesn't exist
+    # Change the file permissions of the .ssh directory
+    # Add the hosting server's SSH key to the known hosts
+    # Optional: Change the file permissions of the known_hosts file
     - name: Add HOST SSH Key to Known Hosts
       run: |
-        ssh-keyscan -H access948937025.webspace-data.io >> ~/.ssh/known_hosts
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
+        ssh-keyscan -H ${{ secrets.HOST_SERVER }} >> ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
 
 
     # Deployment Step (Placeholder)
