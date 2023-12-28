@@ -52,10 +52,16 @@ jobs:
     #- name: Run tests
     #  run: npm test
 
-    - name: Add SSH key to known hosts
+    # This step adds the hosting server's SSH key to the known hosts file
+    # It ensures the GitHub Actions runner recognizes and trusts the hosting server during SSH connections
+    # Create the .ssh directory in the GitHub Actions runner environment
+    # Append the IONOS SSH key from GitHub Secrets to the known hosts
+    # The IONOS_SSH_KEY secret should contain the SSH key for the IONOS server
+    - name: Add HOST SSH Key to Known Hosts
       run: |
         mkdir -p ~/.ssh
-        echo ${{ secrets.HOST_SSH_KEY }} >> ~/.ssh/known_hosts
+        echo "${{ secrets.IONOS_SSH_KEY }}" >> ~/.ssh/known_hosts
+
 
     # Deployment Step (Placeholder)
     # Include your deployment script here. This part should contain commands to deploy your app
