@@ -1,0 +1,32 @@
+# cloudbuild.yaml
+# Configuration file for building and testing a Next.js project with Google Cloud Build
+
+# Define the steps in the build process
+steps:
+  # Step 1: Install dependencies
+  # This step uses the npm cloud builder to install dependencies
+  # Runs 'npm install' in the root directory of your project
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+    id: 'Install Dependencies'
+
+  # Step 2: Build the Next.js application
+  # This step builds the Next.js application
+  # Executes 'npm run build', defined in your package.json
+  # Typically compiles your React components and prepares static assets
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+    id: 'Build Application'
+
+  # Optional Step 3: Run tests
+  # Uncomment the following lines if you have tests set up and want to run them as part of your CI process
+  # Runs your automated tests (e.g., Jest tests)
+  # Executes 'npm test', assuming you have a test script defined in your package.json
+  # - name: 'gcr.io/cloud-builders/npm'
+  #   args: ['test']
+  #   id: 'Run Tests'
+
+# Define the timeout for the entire build process
+# Example: 20 minutes
+options:
+  timeout: '1200s'
