@@ -65,6 +65,12 @@ jobs:
     #     ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
     #     chmod 644 ~/.ssh/known_hosts
 
+    # This step installs sshpass in the GitHub Actions runner
+    # sshpass is used for non-interactive ssh login, facilitating automation
+    - name: Install sshpass
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y sshpass
 
     # Deployment Step (Placeholder)
     # Include your deployment script here. This part should contain commands to deploy your app
