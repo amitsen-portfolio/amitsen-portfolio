@@ -54,7 +54,12 @@ jobs:
 
     # Deployment Step (Placeholder)
     # Include your deployment script here. This part should contain commands to deploy your app
-    # to your hosting provider (like IONOS). Make sure to use GitHub Secrets for sensitive data.
-    # Uncomment and configure this step according to your deployment process.
-    #- name: Deploy to IONOS
-    #  run: ./deploy-to-ionos.sh  # Replace with your deployment script
+    # to your hosting provider. Make sure to use GitHub Secrets for sensitive data.
+    - name: Deploy to host server
+      env:
+        SERVER: ${{ secrets.HOST_SERVER }}
+        USERNAME: ${{ secrets.HOST_USERNAME }}
+        PASSWORD: ${{ secrets.HOST_PASSWORD }}
+        LOCALDIR: ${{ secrets.APP_LOCALDIR }}
+        REMOTEDIR: ${{ secrets.HOST_REMOTEDIR }}
+      run: bash deploy.sh
