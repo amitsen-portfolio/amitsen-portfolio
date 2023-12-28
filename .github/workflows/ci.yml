@@ -80,6 +80,6 @@ jobs:
         SERVER: ${{ secrets.HOST_SERVER }}
         USERNAME: ${{ secrets.HOST_USERNAME }}
         PASSWORD: ${{ secrets.HOST_PASSWORD }}
-        LOCALDIR: '.next'
+        LOCALDIR: 'out'
         REMOTEDIR: ${{ secrets.HOST_REMOTEDIR }}
       run: bash deploy.sh
