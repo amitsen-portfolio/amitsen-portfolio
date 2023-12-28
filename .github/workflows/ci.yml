@@ -52,6 +52,11 @@ jobs:
     #- name: Run tests
     #  run: npm test
 
+    - name: Add SSH key to known hosts
+      run: |
+        mkdir -p ~/.ssh
+        echo ${{ secrets.HOST_SSH_KEY }} >> ~/.ssh/known_hosts
+
     # Deployment Step (Placeholder)
     # Include your deployment script here. This part should contain commands to deploy your app
     # to your hosting provider. Make sure to use GitHub Secrets for sensitive data.
