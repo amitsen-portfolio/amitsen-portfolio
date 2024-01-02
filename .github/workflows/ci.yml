@@ -8,10 +8,10 @@ name: CI/CD Pipeline for My Portfolio Website
 on:
   push:
     branches:
-      - master
+      - version-1
   pull_request:
     branches:
-      - master
+      - version-1
   workflow_dispatch:
 
 # Defines the jobs in the workflow
