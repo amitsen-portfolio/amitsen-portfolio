@@ -1,10 +1,10 @@
 # ci.yml
 # GitHub Actions Workflow
-# This workflow handles the Continuous Integration (CI) and Deployment (CD) process for a portfolio website.
+# This workflow handles the Continuous Integration and Deployment process
 
 name: CI/CD Pipeline for My Portfolio Website
 
-# Triggers for the workflow: on push and pull request events to 'version-1' branch, and manual triggers (workflow_dispatch).
+# Defines when the workflow will run
 on:
   push:
     branches:
@@ -14,25 +14,30 @@ on:
       - version-1
   workflow_dispatch:
 
-# Job definitions
+# Defines the jobs in the workflow
 jobs:
-  # First job: Build and Test
   build-and-test:
-    runs-on: ubuntu-latest  # Specifies the runner environment (Ubuntu latest version)
+    runs-on: ubuntu-latest  # Specifies the runner environment to use (Ubuntu latest version)
 
-    # Steps performed in the build-and-test job
     steps:
-    # Checks out the repository code into the GitHub Actions runner.
+    # Step : Checkout the repository
+    # This action checks out your repository to the GitHub Actions runner,
+    # allowing the workflow to access the contents of your repository
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Sets up the Node.js environment using a specific version.
+    # Step: Set up Node.js environment
+    # This action sets up a Node.js environment for the workflow,
+    # using the version specified under 'node-version'
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.10.0'  # Define the Node.js version to match the development environment.
+        node-version: '20.10.0'  # Specify your Node.js version here (match with your local dev environment)
 
-    # Caches Node.js modules to speed up future workflow runs.
+    # Step: Cache Node.js Modules
+    # This step caches the `node_modules` and Next.js build cache directories to speed up future builds.
+    # The cache is keyed on the OS, the contents of `package-lock.json`, and all JavaScript/TypeScript source files.
+    # This means the cache will only be used if these files haven't changed.
     - name: Cache Node.js modules
       uses: actions/cache@v3
       with:
@@ -43,48 +48,49 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
-    # Installs project dependencies defined in package.json.
+    # Step: Install dependencies
+    # This step runs 'npm install' to install all dependencies specified in your package.json file
     - name: Install dependencies
       run: npm install
 
-    # Builds the Next.js application.
+    # Step: Build the project
+    # Here, we build the Next.js application by running the 'build' script defined in package.json
     - name: Build
       run: npm run build
 
-    # Optional: Run tests - Uncomment below if tests are configured.
+    # Step: Run tests (Optional)
+    # If you have tests set up, this step will run them. Uncomment this step if needed.
+    # This step runs 'npm test', which should be configured in your package.json
     #- name: Run tests
     #  run: npm test
 
-  # Second job: Deploy
-  # This job depends on the successful completion of the build-and-test job.
-  # It runs only for push events to the 'version-1' branch.
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-test  # Specifies that this job needs the build-and-test job to complete first.
-    if: github.event_name == 'push' && github.ref == 'refs/heads/version-1'  # Conditional execution for pushes to 'version-1' branch.
-
-    # Steps performed in the deploy job
-    steps:
-    # Checks out the repository code into the GitHub Actions runner.
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    # Adds the hosting server's SSH key to known hosts for secure connections.
+    # This step adds the hosting server's SSH key to the known hosts file
+    # It ensures the GitHub Actions runner recognizes and trusts the hosting server during SSH connections
+    # Create the .ssh directory if it doesn't exist
+    # Change the file permissions of the .ssh directory
+    # Add the hosting server's SSH key to the known hosts
+    # Optional: Change the file permissions of the known_hosts file
     - name: Add HOST SSH Key to Known Hosts
+      if: github.event_name == 'push' && github.ref == 'refs/heads/version-1'
       run: |
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
         ssh-keyscan -H ${{ secrets.HOST_SERVER }} >> ~/.ssh/known_hosts
         chmod 644 ~/.ssh/known_hosts
 
-    # Installs sshpass for non-interactive SSH login, facilitating automated deployment.
+    # This step installs sshpass in the GitHub Actions runner
+    # sshpass is used for non-interactive ssh login, facilitating automation
     - name: Install sshpass
+      if: github.event_name == 'push' && github.ref == 'refs/heads/version-1'
       run: |
         sudo apt-get update
         sudo apt-get install -y sshpass
 
-    # Deploys the application to the specified host server using a custom script.
+    # Deployment Step (Placeholder)
+    # Include your deployment script here. This part should contain commands to deploy your app
+    # to your hosting provider. Make sure to use GitHub Secrets for sensitive data.
     - name: Deploy to host server
+      if: github.event_name == 'push' && github.ref == 'refs/heads/version-1'
       env:
         SERVER: ${{ secrets.HOST_SERVER }}
         USERNAME: ${{ secrets.HOST_USERNAME }}
