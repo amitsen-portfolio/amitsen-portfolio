@@ -2,6 +2,8 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
+
+// Importing project images from the public directory
 import codebuddiesImg from "../../public/images/projects/codebuddies.png";
 import classtuneImg from "../../public/images/projects/classtune.png";
 import mathParkingImg from "../../public/images/projects/math-parking.png";
@@ -10,6 +12,7 @@ import uncleFrankImg from "../../public/images/projects/uncle-frank.png";
 import udoyImg from "../../public/images/projects/udoy.png";
 import glooberImg from "../../public/images/projects/gloober.png";
 
+// Navigation links data for the application
 export const links = [
   {
     name: "Home",
@@ -37,6 +40,7 @@ export const links = [
   },
 ] as const;
 
+// Data for professional experiences, including titles, locations, descriptions, icons, and dates
 export const experiencesData = [
   {
     title: "Graduated bootcamp",
@@ -64,6 +68,7 @@ export const experiencesData = [
   },
 ] as const;
 
+// Data for projects, including titles, descriptions, tags, and image URLs
 export const projectsData = [
   {
     title: "Codebuddies",
@@ -116,6 +121,7 @@ export const projectsData = [
   },
 ] as const;
 
+// Data structure for skills categorized by development areas, with each category containing a list of skills
 export const skillsData = [
     {
         key: "iOS App Development",
