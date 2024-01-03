@@ -20,13 +20,13 @@ jobs:
     runs-on: ubuntu-latest  # Specifies the runner environment to use (Ubuntu latest version)
 
     steps:
-    # Step 1: Checkout the repository
+    # Step : Checkout the repository
     # This action checks out your repository to the GitHub Actions runner,
     # allowing the workflow to access the contents of your repository
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Step 2: Set up Node.js environment
+    # Step: Set up Node.js environment
     # This action sets up a Node.js environment for the workflow,
     # using the version specified under 'node-version'
     - name: Set up Node.js
@@ -34,17 +34,31 @@ jobs:
       with:
         node-version: '20.10.0'  # Specify your Node.js version here (match with your local dev environment)
 
-    # Step 3: Install dependencies
+    # Step: Cache Node.js Modules
+    # This step caches the `node_modules` and Next.js build cache directories to speed up future builds.
+    # The cache is keyed on the OS, the contents of `package-lock.json`, and all JavaScript/TypeScript source files.
+    # This means the cache will only be used if these files haven't changed.
+    - name: Cache Node.js modules
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.npm
+          ${{ github.workspace }}/.next/cache
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+        restore-keys: |
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+    # Step: Install dependencies
     # This step runs 'npm install' to install all dependencies specified in your package.json file
     - name: Install dependencies
       run: npm install
 
-    # Step 4: Build the project
+    # Step: Build the project
     # Here, we build the Next.js application by running the 'build' script defined in package.json
     - name: Build
       run: npm run build
 
-    # Step 5: Run tests (Optional)
+    # Step: Run tests (Optional)
     # If you have tests set up, this step will run them. Uncomment this step if needed.
     # This step runs 'npm test', which should be configured in your package.json
     #- name: Run tests
