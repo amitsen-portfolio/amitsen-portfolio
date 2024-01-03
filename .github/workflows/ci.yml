@@ -65,6 +65,10 @@ jobs:
 
     # Steps performed in the deploy job
     steps:
+    # Checks out the repository code into the GitHub Actions runner.
+    - name: Checkout code
+      uses: actions/checkout@v4
+
     # Adds the hosting server's SSH key to known hosts for secure connections.
     - name: Add HOST SSH Key to Known Hosts
       run: |
