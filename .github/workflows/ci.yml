@@ -63,11 +63,6 @@ jobs:
     needs: build-and-test  # Specifies that this job needs the build-and-test job to complete first.
     if: github.event_name == 'push' && github.ref == 'refs/heads/version-1'  # Conditional execution for pushes to 'version-1' branch.
 
-    steps:
-    # Checks out the repository code into the GitHub Actions runner.
-    - name: Checkout code
-      uses: actions/checkout@v4
-
     # Steps performed in the deploy job
     steps:
     # Checks out the repository code into the GitHub Actions runner.
