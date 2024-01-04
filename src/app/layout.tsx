@@ -23,7 +23,7 @@ export default function RootLayout({
     // Setting the language of the document to English
     <html lang="en">
       {/* Setting up the body of the document with custom styles */}
-      <body className={`${inter.className} text-gray-950 relative h-[5000px]`}>
+      <body className={`${inter.className} text-gray-950 relative h-[5000px] pt-28 sm:pt-36`}>
         {/* Fixed background divs for gradient effect */}
         <div className="bg-slate-50 fixed top-0 left-0 right-0 bottom-0 -z-10">
           {/* First gradient circle */}
