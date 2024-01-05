@@ -1,14 +1,28 @@
 "use client";
 
 // Import necessary modules and components
-import React from "react";
+import React, { useEffect } from "react";
 import SectionHeading from "./section-heading"; // Custom component for section headings
 import { motion } from "framer-motion"; // Importing 'motion' for animation effects from Framer Motion
+import { useInView } from "react-intersection-observer";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function About() {
+
+  const { ref, inView } = useInView({
+    threshold: 0.75
+  });
+  const { setActiveSection } = useActiveSectionContext();
+  useEffect(() => {
+    if (inView) {
+      setActiveSection("About");
+    }
+  }, [inView, setActiveSection]);
+
   return (
     // A motion section from Framer Motion for animated effects
     <motion.section
+      ref={ref}
       className="mb-28 max-w-[50rem] text-center leading-8 sm:mb-0 scroll-mt-28" // Styling for the section
       initial={{ opacity: 0, y: 100 }} // Initial state of the animation: fully transparent and positioned 100 pixels down
       animate={{ opacity: 1, y: 0 }} // End state of the animation: fully opaque and in the original position

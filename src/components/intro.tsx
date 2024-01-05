@@ -2,7 +2,7 @@
 
 // Importing necessary modules and components
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import profilePhoto from "@/../public/images/profile-photo.svg";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -10,12 +10,28 @@ import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { introData } from "@/lib/data";
+import { useInView } from "react-intersection-observer";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 // Intro component definition
 export default function Intro() {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+  const { setActiveSection } = useActiveSectionContext();
+  useEffect(() => {
+    if (inView) {
+      setActiveSection("Home");
+    }
+  }, [inView, setActiveSection]);
+
   return (
     // Section element for the introduction part of the page
-    <section id="home" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
+    <section
+      ref={ref}
+      id="home"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+    >
       {/* Container for the profile image */}
       <div className="flex items-center justify-center">
         <motion.div
@@ -47,8 +63,8 @@ export default function Intro() {
         {/* Introduction text with emphasis on certain words */}
         Hi, it's <span className="font-bold">Amit</span> here. As a{" "}
         <span className="font-bold">Software Engineer</span> with over{" "}
-        <span className="font-bold">{introData.experience}</span> of experience, I specialize
-        in <span className="underline">Swift</span> for{" "}
+        <span className="font-bold">{introData.experience}</span> of experience,
+        I specialize in <span className="underline">Swift</span> for{" "}
         <span className="italic">iOS</span> and{" "}
         <span className="underline">Kotlin</span> for{" "}
         <span className="italic">Android</span>, along with{" "}
