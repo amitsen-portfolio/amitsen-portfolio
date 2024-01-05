@@ -4,13 +4,14 @@
 import { links } from "@/lib/data"; // Importing the 'links' data from a local file
 import { motion } from "framer-motion"; // Importing 'motion' from Framer Motion for animations
 import Link from "next/link"; // Importing 'Link' component from Next.js for navigation
-import React, { useState } from "react"; // React library import
+import React from "react"; // React library import
 import clsx from "clsx";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 // Header component definition
 export default function Header() {
 
-  const [activeSection, setActiveSection] = useState('Home');
+  const { activeSection, setActiveSection } = useActiveSectionContext();
 
   return (
     // Header container with a high z-index to ensure it's above other page elements
