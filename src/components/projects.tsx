@@ -6,7 +6,7 @@ import Project from "./project"; // Import Project component
 export default function Projects() {
   return (
     // Main container for the projects section
-    <section>
+    <section id="projects" className="scroll-mt-28">
       {/* Section heading for the projects */}
       <SectionHeading>My projects</SectionHeading>
 

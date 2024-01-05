@@ -15,7 +15,7 @@ import { introData } from "@/lib/data";
 export default function Intro() {
   return (
     // Section element for the introduction part of the page
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+    <section id="home" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
       {/* Container for the profile image */}
       <div className="flex items-center justify-center">
         <motion.div
