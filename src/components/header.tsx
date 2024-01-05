@@ -4,10 +4,14 @@
 import { links } from "@/lib/data"; // Importing the 'links' data from a local file
 import { motion } from "framer-motion"; // Importing 'motion' from Framer Motion for animations
 import Link from "next/link"; // Importing 'Link' component from Next.js for navigation
-import React from "react"; // React library import
+import React, { useState } from "react"; // React library import
+import clsx from "clsx";
 
 // Header component definition
 export default function Header() {
+
+  const [activeSection, setActiveSection] = useState('Home');
+
   return (
     // Header container with a high z-index to ensure it's above other page elements
     <header className="z-[999] relative">
@@ -25,17 +29,33 @@ export default function Header() {
           {/* Mapping over the links array to render each link */}
           {links.map((link) => (
             <motion.li
-              className="h-3/4 flex items-center justify-center"
+              className="h-3/4 flex items-center justify-center relative"
               key={link.hash} // Unique key for each list item
               initial={{ y: -100, opacity: 0 }} // Initial animation state for each link
               animate={{ y: 0, opacity: 1 }} // Final animation state for each link
             >
               {/* Link component for navigation */}
               <Link
-                className="flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition"
+                className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-slate-950 transition", {
+                  "text-slate-950": activeSection === link.name,
+                })}
                 href={link.hash}
+                onClick={() => setActiveSection(link.name)}
               >
                 {link.name}
+
+                {
+                  activeSection === link.name && (
+                    <motion.span className="bg-slate-200 rounded-full absolute inset-0 -z-10"
+                      layoutId="activeSection"
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30, 
+                      }}
+                    />
+                  )
+                }
               </Link>
             </motion.li>
           ))}
