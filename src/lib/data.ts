@@ -40,6 +40,11 @@ export const links = [
   },
 ] as const;
 
+// Data for intro
+export const introData = {
+  experience: "12 years"
+} as const;
+
 // Data for professional experiences, including titles, locations, descriptions, icons, and dates
 export const experiencesData = [
   {

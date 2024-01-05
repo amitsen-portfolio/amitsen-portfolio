@@ -9,6 +9,7 @@ import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
+import { introData } from "@/lib/data";
 
 // Intro component definition
 export default function Intro() {
@@ -38,7 +39,7 @@ export default function Intro() {
       </div>
 
       {/* Animated paragraph introducing Amit */}
-      <motion.p
+      <motion.h1
         className="mb-10 mt-4 px-4 text-xl text-slate-800 font-medium !leading-[1.5] sm:text-2xl"
         initial={{ opacity: 0, y: 100 }} // Initial animation state (lower opacity and position)
         animate={{ opacity: 1, y: 0 }} // Final animation state (standard opacity and position)
@@ -46,7 +47,7 @@ export default function Intro() {
         {/* Introduction text with emphasis on certain words */}
         Hi, it's <span className="font-bold">Amit</span> here. As a{" "}
         <span className="font-bold">Software Engineer</span> with over{" "}
-        <span className="font-bold">12 years</span> of experience, I specialize
+        <span className="font-bold">{introData.experience}</span> of experience, I specialize
         in <span className="underline">Swift</span> for{" "}
         <span className="italic">iOS</span> and{" "}
         <span className="underline">Kotlin</span> for{" "}
@@ -56,7 +57,7 @@ export default function Intro() {
         <span className="font-bold">Educator</span> and an{" "}
         <span className="font-bold">SEO Expert</span>, dedicated to solving
         real-world tech challenges and imparting knowledge in these areas.
-      </motion.p>
+      </motion.h1>
 
       {/* Container for action buttons and links */}
       <motion.div
