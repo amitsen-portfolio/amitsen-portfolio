@@ -42,7 +42,7 @@ export const links = [
 
 // Data for intro
 export const introData = {
-  experience: "12 years"
+  experience: "12 years",
 } as const;
 
 // Data for professional experiences, including titles, locations, descriptions, icons, and dates
@@ -85,7 +85,7 @@ export const projectsData = [
   {
     title: "Classtune",
     description:
-      "Classtune is an app (web, android, ios) Students, Parents, Teachers and School Admin can bridge with each other and progress together.",
+      "Classtune is an app Students, Parents, Teachers and School Admin can bridge with each other and progress together.",
     tags: ["iOS", "Swift", "UIKit", "Android", "Java", "Kotlin"],
     imageUrl: classtuneImg,
   },
@@ -99,7 +99,7 @@ export const projectsData = [
   {
     title: "Impossible six pack abs",
     description:
-      "Impossible Abs is a workout program wrapped in personal trainer theme so we can assure that the user benefits and enjoy the experience of working out with us, This is why this application was designed to give personal trainer attention to the user.",
+      "Impossible Abs is a workout program wrapped in personal trainer theme.",
     tags: ["iOS", "Swift", "Android", "Java"],
     imageUrl: sixPackAbsImg,
   },
@@ -128,65 +128,61 @@ export const projectsData = [
 
 // Data structure for skills categorized by development areas, with each category containing a list of skills
 export const skillsData = [
-    {
-        key: "iOS App Development",
-        value: [
-            "Swift",
-            "SwiftUI",
-            "UIKit",
-            "Combine Framework",
-            "Objective-C",
-            "MVC",
-            "MVVM",
-            "MVVMC",
-            "Viper"
-        ]
-    },
-    {
-        key: "Android App Development",
-        value: [
-            "Android",
-            "Kotlin",
-            "Java"
-        ]
-    },
-    {
-        key: "API Development",
-        value: [
-            "Python",
-            "Django",
-            "Java",
-            "Kotlin",
-            "Springboot",
-            "Swift",
-            "Vapor",
-            "Kitura"
-        ]
-    }, 
-    {
-        key: "Web Development",
-        value: [
-            "HTML",
-            "Javascript",
-            "React JS",
-            "Next JS",
-            "MySQL",
-            "PostgreSQL",
-            "Sanity",
-            "Firestore",
-            "CSS",
-            "SASS",
-            "Tailwind",
-            "Typescript"
-        ]
-    },
-    {
-        key: "Devops",
-        value: [
-            "Git",
-            "Github Actions",
-            "CI/CD Pipeline",
-            "Google Cloud Platform (GCP)"
-        ]
-    }
+  {
+    key: "iOS App Development",
+    value: [
+      "Swift",
+      "SwiftUI",
+      "UIKit",
+      "Combine Framework",
+      "Objective-C",
+      "MVC",
+      "MVVM",
+      "MVVMC",
+      "Viper",
+    ],
+  },
+  {
+    key: "Android App Development",
+    value: ["Android", "Kotlin", "Java"],
+  },
+  {
+    key: "API Development",
+    value: [
+      "Python",
+      "Django",
+      "Java",
+      "Kotlin",
+      "Springboot",
+      "Swift",
+      "Vapor",
+      "Kitura",
+    ],
+  },
+  {
+    key: "Web Development",
+    value: [
+      "HTML",
+      "Javascript",
+      "React JS",
+      "Next JS",
+      "MySQL",
+      "PostgreSQL",
+      "Sanity",
+      "Firestore",
+      "CSS",
+      "SASS",
+      "Tailwind",
+      "Typescript",
+    ],
+  },
+  {
+    key: "Devops",
+    value: [
+      "Git",
+      "Github Actions",
+      "CI/CD Pipeline",
+      "Google Cloud Platform (GCP)",
+    ],
+  },
 ] as const;
