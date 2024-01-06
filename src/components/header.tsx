@@ -44,7 +44,7 @@ export default function Header() {
                 // href attribute for the Link component
                 href={link.hash}
                 
-                onClick={() => {
+                onMouseUp={() => {
                   // Set the active section to the current link's name
                   setActiveSection(link.name);
 
