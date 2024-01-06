@@ -1,23 +1,15 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import SectionHeading from "./section-heading"; // Import custom section heading component
 import { projectsData } from "@/lib/data"; // Import projects data
 import Project from "./project"; // Import Project component
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hooks";
 
 export default function Projects() {
 
-  const { ref, inView } = useInView({
-    threshold: 0.2
-  });
-  const { setActiveSection } = useActiveSectionContext();
-  useEffect(() => {
-    if (inView) {
-      setActiveSection("Projects");
-    }
-  }, [inView, setActiveSection]);
+  // This hook is used to keep track of the active section
+  const { ref } = useSectionInView("Projects", 0.2);
 
   return (
     // Main container for the projects section

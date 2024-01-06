@@ -11,6 +11,7 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 // Header component definition
 export default function Header() {
 
+  // This hook is used to keep track of the active section
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
@@ -40,15 +41,20 @@ export default function Header() {
                 className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-slate-950 transition", {
                   "text-slate-950": activeSection === link.name,
                 })}
+                // href attribute for the Link component
                 href={link.hash}
+                
                 onClick={() => {
+                  // Set the active section to the current link's name
                   setActiveSection(link.name);
+
+                  // Set the time of last click to the current time
                   setTimeOfLastClick(Date.now());
                 }}
               >
                 {link.name}
-
                 {
+                  // If the link is active, render a span element with a background color that matches the link's text color
                   activeSection === link.name && (
                     <motion.span className="bg-slate-200 rounded-full absolute inset-0 -z-10"
                       layoutId="activeSection"
