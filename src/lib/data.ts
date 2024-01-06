@@ -185,4 +185,12 @@ export const skillsData = [
       "Google Cloud Platform (GCP)",
     ],
   },
+  {
+    key: "AI/ML",
+    value: [
+      "MLKit",
+      "CoreML",
+      "Tensorflow"
+    ],
+  },
 ] as const;

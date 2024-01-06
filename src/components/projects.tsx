@@ -13,12 +13,12 @@ export default function Projects() {
 
   return (
     // Main container for the projects section
-    <section ref={ref} id="projects" className="scroll-mt-28">
+    <section ref={ref} id="projects" className="scroll-mt-28 mb-28 sm:mb-0">
       {/* Section heading for the projects */}
       <SectionHeading>My projects</SectionHeading>
 
       {/* Container for individual project components */}
-      <div>
+      <div className="flex flex-col items-center">
         {
           // Map through the projectsData array to render Project components
           projectsData.map((project, index) => (
