@@ -4,15 +4,22 @@
 import React from "react";
 import SectionHeading from "./section-heading"; // Custom component for section headings
 import { motion } from "framer-motion"; // Importing 'motion' for animation effects from Framer Motion
+import { useSectionInView } from "@/lib/hooks";
 
 export default function About() {
+
+  // This hook is used to keep track of whether the section is in view
+  const { ref } = useSectionInView("About");
+
   return (
     // A motion section from Framer Motion for animated effects
     <motion.section
-      className="mb-28 max-w-[50rem] text-center leading-8 sm:mb-0" // Styling for the section
+      ref={ref} // Ref for the section
+      className="mb-28 max-w-[50rem] text-center leading-8 sm:mb-0 scroll-mt-28" // Styling for the section
       initial={{ opacity: 0, y: 100 }} // Initial state of the animation: fully transparent and positioned 100 pixels down
       animate={{ opacity: 1, y: 0 }} // End state of the animation: fully opaque and in the original position
       transition={{ delay: 0.175 }} // Transition settings: animation starts after a delay of 175ms
+      id="about"  // ID for the section
     >
 
       {/* Section heading */}

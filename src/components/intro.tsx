@@ -10,12 +10,21 @@ import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { introData } from "@/lib/data";
+import { useSectionInView } from "@/lib/hooks";
 
 // Intro component definition
 export default function Intro() {
+
+  // This hook is used to keep track of the active section
+  const { ref } = useSectionInView("Home", 0.5);
+
   return (
     // Section element for the introduction part of the page
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+    <section
+      ref={ref}
+      id="home"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+    >
       {/* Container for the profile image */}
       <div className="flex items-center justify-center">
         <motion.div
@@ -47,8 +56,8 @@ export default function Intro() {
         {/* Introduction text with emphasis on certain words */}
         Hi, it's <span className="font-bold">Amit</span> here. As a{" "}
         <span className="font-bold">Software Engineer</span> with over{" "}
-        <span className="font-bold">{introData.experience}</span> of experience, I specialize
-        in <span className="underline">Swift</span> for{" "}
+        <span className="font-bold">{introData.experience}</span> of experience,
+        I specialize in <span className="underline">Swift</span> for{" "}
         <span className="italic">iOS</span> and{" "}
         <span className="underline">Kotlin</span> for{" "}
         <span className="italic">Android</span>, along with{" "}

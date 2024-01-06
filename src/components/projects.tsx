@@ -1,12 +1,19 @@
+"use client";
+
 import React from "react";
 import SectionHeading from "./section-heading"; // Import custom section heading component
 import { projectsData } from "@/lib/data"; // Import projects data
 import Project from "./project"; // Import Project component
+import { useSectionInView } from "@/lib/hooks";
 
 export default function Projects() {
+
+  // This hook is used to keep track of the active section
+  const { ref } = useSectionInView("Projects", 0.2);
+
   return (
     // Main container for the projects section
-    <section>
+    <section ref={ref} id="projects" className="scroll-mt-28">
       {/* Section heading for the projects */}
       <SectionHeading>My projects</SectionHeading>
 
