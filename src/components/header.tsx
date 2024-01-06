@@ -11,7 +11,7 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 // Header component definition
 export default function Header() {
 
-  const { activeSection, setActiveSection } = useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     // Header container with a high z-index to ensure it's above other page elements
@@ -41,7 +41,10 @@ export default function Header() {
                   "text-slate-950": activeSection === link.name,
                 })}
                 href={link.hash}
-                onClick={() => setActiveSection(link.name)}
+                onClick={() => {
+                  setActiveSection(link.name);
+                  setTimeOfLastClick(Date.now());
+                }}
               >
                 {link.name}
 
