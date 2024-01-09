@@ -48,28 +48,67 @@ export const introData = {
 // Data for professional experiences, including titles, locations, descriptions, icons, and dates
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Software Engineer",
+    company: "Champs21.com",
+    location: "Dhaka, Bangladesh",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
-  },
-  {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
-    description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "I contributed to the development of 'Classtune', a school management application, and various other specialized in-house apps.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "2011-2014",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Research Assistant",
+    company: "The University of Texas at Arlington",
+    location: "Arlington, TX, United States",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "I was a Research Assistant in the Software Engineering Research Team, focusing on Mobile Profiling Data Analysis, and worked with Machine Learning and Big Data concepts.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2016 - 2018",
+  },
+  {
+    title: "Software Engineer",
+    company: "Uber Inc.",
+    location: "Palot Alto, CA, United States",
+    description:
+      "I engineered a real-time GPS tracking algorithm, ensuring seamless location sharing between customers and drivers.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2016 - 2018",
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Zalando SE",
+    location: "Dortmund, Germany",
+    description:
+      "I developed a Payment SDK for iOS and Android, transitioning their system from a web-based to a native interface.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2018 - 2019",
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Lotto24 AG",
+    location: "Hamburg, Germany",
+    description:
+      "I used to oversee application architecture and manage technical upgrades, ensuring adherence to clean code standards.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2019 - 2023",
+  },
+  {
+    title: "Extern Lecturer (Part-time)",
+    company: "SRH Berlin University of Applied Sciences",
+    location: "Hamburg, Germany",
+    description:
+      "I instruct both introductory and higher-level courses in Computer Science, encompassing fundamental principles and complex topics in the field.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2022 - present",
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Panavion GmbH",
+    location: "Frankfurt, Germany",
+    description:
+      "I am engaged in the development and maintenance of software applications utilized by the Police Department of the Hessen State.",
+    icon: React.createElement(CgWorkAlt),
+    date: "2023 - present",
   },
 ] as const;
 

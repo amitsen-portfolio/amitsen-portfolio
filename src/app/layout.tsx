@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       {/* Setting up the body of the document with custom styles */}
       <body
-        className={`${inter.className} text-gray-950 relative h-[6000px] pt-28 sm:pt-36`}
+        className={`${inter.className} text-gray-950 relative h-[8000px] pt-28 sm:pt-36`}
       >
         {/* Fixed background divs for gradient effect */}
         <div className="bg-slate-50 fixed top-0 left-0 right-0 bottom-0 -z-10">

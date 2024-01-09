@@ -16,7 +16,7 @@ export default function Skills() {
     <section
       ref={ref} // Ref attached for viewport visibility tracking
       id="skills" // ID for potential anchor linking
-      className="scroll-mt-28 max-w-[53rem] mx-auto text-center" // Styling: top margin for scroll, max width, centering, and text alignment
+      className="scroll-mt-28 max-w-[53rem] mx-auto text-center mb-28 sm:mb-0" // Styling: top margin for scroll, max width, centering, and text alignment
     >
       <SectionHeading>My Skills</SectionHeading>
       {/* Grid container for SkillCards */}
