@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // experimental: {
+  //   serverActions: true,
+  // },
 
   // Uncomment the following code if you import images from outside source
   // images: {

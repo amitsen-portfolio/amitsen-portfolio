@@ -47,7 +47,7 @@ export default function SkillCard({ title, skills }: SkillCardProps) {
               viewport={{ once: true }} // Run animation only once
               custom={index} // Pass index to the animation for staggering effect
               key={index}
-              className="bg-slate-100 border border-slate-300 rounded-xl px-5 py-1 text-xs sm:text-lg"
+              className="bg-slate-100 my-border-slate-300 rounded-xl px-5 py-1 text-xs sm:text-lg"
             >
               {skill} {/* Display the skill */}
             </motion.li>

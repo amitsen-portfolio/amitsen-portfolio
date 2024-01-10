@@ -38,7 +38,7 @@ export default function Header() {
             >
               {/* Link component for navigation */}
               <Link
-                className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-slate-950 transition", {
+                className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-orange-500 transition", {
                   "text-slate-950": activeSection === link.name,
                 })}
                 // href attribute for the Link component

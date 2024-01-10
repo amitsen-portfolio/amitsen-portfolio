@@ -42,7 +42,7 @@ export default function Project({
   // Render the component
   return (
     <motion.div
-      className="group border border-slate-300 mb-3 sm:mb-8 last:mb-0 rounded-2xl shadow-2xl overflow-hidden"
+      className="group my-border-slate-300 mb-3 sm:mb-8 last:mb-0 rounded-2xl shadow-2xl overflow-hidden"
       ref={ref}
       style={{
         scale: isSmallScreen ? 1 : scaleProgress, // Disable scale on small screens
