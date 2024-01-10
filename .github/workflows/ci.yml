@@ -19,6 +19,12 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest  # Specifies the runner environment to use (Ubuntu latest version)
 
+    environment: production
+    env:
+        NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${{ vars.EMAILJS_PUBLIC_KEY }}
+        NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ vars.EMAILJS_SERVICE_ID }}
+        NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ vars.EMAILJS_TEMPLATE_ID }}
+
     steps:
     # Step : Checkout the repository
     # This action checks out your repository to the GitHub Actions runner,
