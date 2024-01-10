@@ -7,7 +7,7 @@ import { useSectionInView } from "@/lib/hooks";
 import SubmitBtn from "./submit-btn";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
-import { getErrorMessage, validateEnvVariable } from "@/lib/utils";
+import { getErrorMessage } from "@/lib/utils";
 
 export default function Contact() {
   // This hook is used to keep track of whether the section is in view
