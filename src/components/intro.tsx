@@ -11,12 +11,14 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { introData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 // Intro component definition
 export default function Intro() {
 
   // This hook is used to keep track of the active section
   const { ref } = useSectionInView("Home", 0.5);
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext(); // This hook is used to keep track of the active section
 
   return (
     // Section element for the introduction part of the page
@@ -42,7 +44,7 @@ export default function Intro() {
             width={192}
             height={192}
             priority={true}
-            className="h-48 w-48 object-cover rounded-full border-[0.35rem] border-white shadow-xl"
+            className="h-48 w-48 object-cover rounded-full border-[0.35rem] border-white shadow-xl hover:scale-110 transition hover:shadow-custom-glow"
           />
         </motion.div>
       </div>
@@ -81,6 +83,12 @@ export default function Intro() {
         <Link
           href="#contact"
           className="group bg-slate-900 text-slate-200 px-7 py-3 flex items-center gap-2 rounded-full border-[0.2rem] border-slate-400 outline-none hover:scale-110 hover:bg-slate-950 transition cursor-pointer"
+          onClick={() => {
+            // Scroll to the Contact section when the link is clicked
+            document
+              setActiveSection("Contact");
+              setTimeOfLastClick(Date.now());
+          }}
         >
           Contact me here{" "}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />

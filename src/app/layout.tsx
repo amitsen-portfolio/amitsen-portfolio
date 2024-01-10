@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import { Toaster } from "react-hot-toast";
 
 // Initialize the Inter font from Google Fonts with the Latin subset
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       {/* Setting up the body of the document with custom styles */}
       <body
-        className={`${inter.className} text-gray-950 relative h-[8000px] pt-28 sm:pt-36`}
+        className={`${inter.className} text-gray-950 relative pt-28 sm:pt-36`}
       >
         {/* Fixed background divs for gradient effect */}
         <div className="bg-slate-50 fixed top-0 left-0 right-0 bottom-0 -z-10">
@@ -42,6 +43,7 @@ export default function RootLayout({
             <Header />
             {/* Children components - the main content of the page */}
             {children}
+            <Toaster position="top-right" />
           </ActiveSectionContextProvider>
         </div>
       </body>
