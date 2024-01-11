@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 // Type definition for project properties
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = (typeof projectsData.data)[number];
 
 // Functional component for Project
 export default function Project({
