@@ -7,19 +7,18 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { experiencesData } from "@/lib/data";
+import { experienceData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function Experience() {
-
   // This hook is used to keep track of whether the section is in view
-  const { ref } = useSectionInView("Experience", 0.2);
+  const { ref } = useSectionInView(experienceData.pageRoute, 0.2);
 
   return (
-    <section ref={ref} id="experience" className="scroll-mt-28 mb-28">
-      <SectionHeading>My experience</SectionHeading>
+    <section ref={ref} id={experienceData.pageId} className="scroll-mt-28 mb-28">
+      <SectionHeading>{experienceData.pageTitle}</SectionHeading>
       <VerticalTimeline animate={true} lineColor="#94a3b8">
-        {experiencesData.map((item, index) => (
+        {experienceData.data.map((item, index) => (
           <React.Fragment key={index}>
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
@@ -42,9 +41,13 @@ export default function Experience() {
               }}
             >
               <h3 className="font-semibold capitalize">{item.title}</h3>
-              <p className="font-normal !mt-0 text-orange-500">{item.company}</p>
+              <p className="font-normal !mt-0 text-orange-500">
+                {item.company}
+              </p>
               <p className="!mt-1 !font-thin">{item.location}</p>
-              <p className="!mt-1 !font-normal text-slate-700">{item.description}</p>
+              <p className="!mt-1 !font-normal text-slate-700">
+                {item.description}
+              </p>
             </VerticalTimelineElement>
           </React.Fragment>
         ))}

@@ -9,7 +9,7 @@ import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
-import { introData } from "@/lib/data";
+import { contactData, introData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
@@ -17,14 +17,14 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 export default function Intro() {
 
   // This hook is used to keep track of the active section
-  const { ref } = useSectionInView("Home", 0.5);
+  const { ref } = useSectionInView(introData.pageRoute, 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext(); // This hook is used to keep track of the active section
 
   return (
     // Section element for the introduction part of the page
     <section
       ref={ref}
-      id="home"
+      id={introData.pageId}
       className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
       {/* Container for the profile image */}
@@ -40,7 +40,7 @@ export default function Intro() {
           {/* Image component displaying the profile photo */}
           <Image
             src={profilePhoto}
-            alt="Amit | profile photo"
+            alt={introData.profilePhotoAlt}
             width={192}
             height={192}
             priority={true}
@@ -56,8 +56,8 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }} // Final animation state (standard opacity and position)
       >
         {/* Introduction text with emphasis on certain words */}
-        Hi, it's <span className="font-bold">Amit</span> here. As a{" "}
-        <span className="font-bold">Software Engineer</span> with over{" "}
+        Hi, it's <span className="font-bold">{introData.firstName}</span> here. As a{" "}
+        <span className="font-bold">{introData.profession}</span> with over{" "}
         <span className="font-bold">{introData.experience}</span> of experience,
         I specialize in <span className="underline">Swift</span> for{" "}
         <span className="italic">iOS</span> and{" "}
@@ -86,27 +86,27 @@ export default function Intro() {
           onClick={() => {
             // Scroll to the Contact section when the link is clicked
             document
-              setActiveSection("Contact");
+              setActiveSection(`${contactData.pageRoute}`);
               setTimeOfLastClick(Date.now());
           }}
         >
-          Contact me here{" "}
+          {`${introData.contactButtonTitle} `}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
 
         {/* Download CV button */}
         <a
           className="bg-slate-200 text-slate-800 px-7 py-3 flex items-center gap-2 rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-110 transition cursor-pointer"
-          href="/files/CV.pdf"
+          href={`${introData.cvFilePath}`}
           download
         >
-          Download CV <HiDownload className="opacity-70" />
+          {`${introData.downloadButtonTitle} `}<HiDownload className="opacity-70" />
         </a>
 
         {/* LinkedIn profile link */}
         <a
           className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.25rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer"
-          href="https://www.linkedin.com/in/amit-sen-bb156428/"
+          href={`${introData.linkedinUrl}`}
           target="_blank"
         >
           <BsLinkedin />
@@ -115,7 +115,7 @@ export default function Intro() {
         {/* GitHub profile link */}
         <a
           className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer"
-          href="https://github.com/ronstorm"
+          href={`${introData.githubUrl}`}
           target="_blank"
         >
           <FaGithubSquare />

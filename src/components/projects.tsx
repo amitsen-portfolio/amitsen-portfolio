@@ -9,11 +9,11 @@ import { useSectionInView } from "@/lib/hooks";
 export default function Projects() {
 
   // This hook is used to keep track of the active section
-  const { ref } = useSectionInView("Projects", 0.2);
+  const { ref } = useSectionInView(projectsData.pageRoute, 0.2);
 
   return (
     // Main container for the projects section
-    <section ref={ref} id="projects" className="scroll-mt-28 mb-28 sm:mb-0">
+    <section ref={ref} id={projectsData.pageId} className="scroll-mt-28 mb-28 sm:mb-0">
       {/* Section heading for the projects */}
       <SectionHeading>My projects</SectionHeading>
 
@@ -21,7 +21,7 @@ export default function Projects() {
       <div className="flex flex-col items-center">
         {
           // Map through the projectsData array to render Project components
-          projectsData.map((project, index) => (
+          projectsData.data.map((project, index) => (
             // Using React.Fragment to avoid adding extra nodes to the DOM
             // Key is provided to satisfy React's list rendering requirements
             <React.Fragment key={index}>
