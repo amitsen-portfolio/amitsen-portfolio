@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/footer";
 
 // Initialize the Inter font from Google Fonts with the Latin subset
 const inter = Inter({ subsets: ["latin"] });
@@ -44,6 +45,7 @@ export default function RootLayout({
             {/* Children components - the main content of the page */}
             {children}
             <Toaster position="top-right" />
+            <Footer />
           </ActiveSectionContextProvider>
         </div>
       </body>
