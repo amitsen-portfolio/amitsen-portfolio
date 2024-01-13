@@ -45,14 +45,14 @@ export default function Intro() {
             width={192}
             height={192}
             priority={true}
-            className="h-48 w-48 object-cover rounded-full border-[0.35rem] border-white shadow-xl hover:scale-110 transition hover:shadow-custom-glow"
+            className="h-48 w-48 object-cover rounded-full border border-white shadow-xl hover:scale-110 transition hover:shadow-custom-glow dark:border-slate-400"
           />
         </motion.div>
       </div>
 
       {/* Animated paragraph introducing Amit */}
       <motion.h1
-        className="mb-10 mt-4 px-4 text-xl text-slate-800 font-medium !leading-[1.5] sm:text-2xl"
+        className="mb-10 mt-4 px-4 text-xl text-slate-800 font-medium !leading-[1.5] sm:text-2xl dark:text-slate-300"
         initial={{ opacity: 0, y: 100 }} // Initial animation state (lower opacity and position)
         animate={{ opacity: 1, y: 0 }} // Final animation state (standard opacity and position)
       >
@@ -83,7 +83,7 @@ export default function Intro() {
         {/* Contact me link */}
         <Link
           href="#contact"
-          className="group bg-slate-900 text-slate-200 px-7 py-3 flex items-center gap-2 rounded-full border-[0.2rem] border-slate-400 outline-none hover:scale-110 hover:bg-slate-950 transition cursor-pointer"
+          className="group bg-slate-900 text-slate-200 px-7 py-3 flex items-center gap-2 rounded-full border border-slate-400 outline-none hover:scale-110 hover:bg-slate-950 transition cursor-pointer dark:text-slate-300"
           onClick={() => {
             // Scroll to the Contact section when the link is clicked
             document
@@ -97,7 +97,7 @@ export default function Intro() {
 
         {/* Download CV button */}
         <a
-          className="bg-slate-200 text-slate-800 px-7 py-3 flex items-center gap-2 rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-110 transition cursor-pointer"
+          className="bg-slate-200 text-slate-800 px-7 py-3 flex items-center gap-2 rounded-full border border-slate-700 outline-none hover:scale-110 transition cursor-pointer dark:bg-white/10 dark:text-slate-300 dark:border-slate-300"
           href={`${introData.cvFilePath}`}
           download
         >
@@ -106,7 +106,7 @@ export default function Intro() {
 
         {/* LinkedIn profile link */}
         <a
-          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.25rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip"
+          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.25rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip dark:bg-white/10 dark:text-slate-300 dark:border-slate-300"
           href={introData.linkedinUrl}
           target="_blank"
         >
@@ -116,7 +116,7 @@ export default function Intro() {
 
         {/* GitHub profile link */}
         <a
-          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip"
+          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip dark:bg-white/10 dark:text-slate-300 dark:border-slate-300"
           href={introData.githubUrl}
           target="_blank"
         >
