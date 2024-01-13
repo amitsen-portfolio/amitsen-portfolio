@@ -19,7 +19,7 @@ export default function Header() {
     <header className="z-[999] relative">
       {/* Motion div for animated effect on the header */}
       <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full"
+        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[43rem] sm:rounded-full transition-all"
         initial={{ y: -100, x: "-50%", opacity: 0 }} // Initial animation state
         animate={{ y: 0, x: "-50%", opacity: 1 }} // Final animation state
       ></motion.div>
@@ -38,7 +38,7 @@ export default function Header() {
             >
               {/* Link component for navigation */}
               <Link
-                className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-orange-500 transition", {
+                className={clsx("flex w-full items-center justify-center px-3 py-3 hover:text-orange-500 transition-all", {
                   "text-slate-950": activeSection === link.name,
                 })}
                 // href attribute for the Link component
