@@ -1,5 +1,6 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
+import { RiGraduationCapLine } from "react-icons/ri";
 
 // Importing project images from the public directory
 import codebuddiesImg from "../../public/images/projects/codebuddies.png";
@@ -33,6 +34,10 @@ export const links = [
     hash: "#experience",
   },
   {
+    name: "Education",
+    hash: "#education",
+  },
+  {
     name: "Contact",
     hash: "#contact",
   },
@@ -56,7 +61,7 @@ export const introData = {
 
 // Data for professional experiences, including titles, locations, descriptions, icons, and dates
 export const experienceData =  {
-  pageTitle: "Experience",
+  pageTitle: " My experience",
   pageRoute: "Experience",
   pageId: "experience",
   data: [
@@ -127,14 +132,14 @@ export const experienceData =  {
 } as const;
 
 export const aboutData = {
-  pageTitle: "About",
+  pageTitle: "About me",
   pageRoute: "About",
   pageId: "about",
 } as const;
 
 // Data for projects, including titles, descriptions, tags, and image URLs
 export const projectsData = {
-  pageTitle: "Projects",
+  pageTitle: "My projects",
   pageRoute: "Projects",
   pageId: "projects",
   data: [
@@ -294,8 +299,34 @@ export const skillsData = {
   // ]
 } as const;
 
+export const educationData = {
+  pageTitle: "My education",
+  pageRoute: "Education",
+  pageId: "education",
+  data: [
+    {
+      degree: "M.Sc. in Computer Science",
+      school: "The University of Texas at Arlington (UTA)",
+      location: "Arlington, TX, United States",
+      description:
+        "I specialized in Mobile Profiling Data Analysis for my master's thesis, focusing on Machine Learning, Data Mining, and Big Data.",
+      icon: React.createElement(RiGraduationCapLine),
+      date: "2014 - 2016",
+    },
+    {
+      degree: "B.Sc. in Computer Science & Engineering",
+      school: "Bangladesh University of Engineering & Technology (BUET)",
+      location: "Dhaka, Bangladesh",
+      description:
+        "I focused on fundamental computer science, covering Algorithms, Data Structures, Problem Solving, Databases, Operating Systems, Compilers, and AI, and completed my thesis on neural networks.",
+      icon: React.createElement(RiGraduationCapLine),
+      date: "2006 - 2010",
+    },
+  ]
+} as const;
+
 export const contactData = {
-  pageTitle: "Contact",
+  pageTitle: "Contact me",
   pageRoute: "Contact",
   pageId: "contact",
   mailTo: "me@amitsen.info",
