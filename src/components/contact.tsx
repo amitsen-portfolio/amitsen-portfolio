@@ -45,7 +45,7 @@ export default function Contact() {
     >
       <SectionHeading>{contactData.pageTitle}</SectionHeading>
 
-      <p className="text-slate-700 -mt-6">
+      <p className="text-slate-700 -mt-6 dark:text-slate-300">
         Please contact me directly at{" "}
         <a className="underline" href={`mailto:${contactData.mailTo}`}>
           {contactData.mailTo}
@@ -53,13 +53,17 @@ export default function Contact() {
         or through this form.
       </p>
 
-      <form className="mt-10 flex flex-col" action={handleSubmitAction}>
+      <form
+        className="mt-10 flex flex-col dark:text-slate-300"
+        action={handleSubmitAction}
+      >
         <input
           name={contactData.formName}
           placeholder={contactData.formNamePlaceHolder}
           required
           maxLength={50}
-          className="h-14 px-4 rounded-lg my-border-slate-300"
+          className="h-14 px-4 rounded-lg my-border-slate-300
+          bg-slate-50 bg-opacity-40 focus:bg-opacity-70 dark:bg-opacity-20 dark:focus:bg-opacity-10 transition-all outline-none"
         />
         <input
           type="email"
@@ -67,14 +71,16 @@ export default function Contact() {
           placeholder={contactData.formEmailPlaceHolder}
           required
           maxLength={50}
-          className="h-14 my-3 px-4 rounded-lg my-border-slate-300"
+          className="h-14 my-3 px-4 rounded-lg my-border-slate-300 
+          bg-slate-50 bg-opacity-40 focus:bg-opacity-70 dark:bg-opacity-20 dark:focus:bg-opacity-10 transition-all outline-none"
         />
         <textarea
           name={contactData.formMessage}
           placeholder={contactData.formMessagePlaceHolder}
           required
           maxLength={500}
-          className="h-52 my-3 rounded-lg my-border-slate-300 p-4"
+          className="h-52 my-3 rounded-lg my-border-slate-300 p-4
+          bg-slate-50 bg-opacity-40 focus:bg-opacity-70 dark:bg-opacity-20 dark:focus:bg-opacity-10 transition-all outline-none"
         />
         <SubmitBtn title={contactData.submitButtonTitle} />
       </form>
