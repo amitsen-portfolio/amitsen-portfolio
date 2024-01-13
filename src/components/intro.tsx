@@ -9,6 +9,7 @@ import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
+import { BsMedium } from "react-icons/bs";
 import { contactData, introData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
@@ -105,20 +106,32 @@ export default function Intro() {
 
         {/* LinkedIn profile link */}
         <a
-          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.25rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer"
-          href={`${introData.linkedinUrl}`}
+          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.25rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip"
+          href={introData.linkedinUrl}
           target="_blank"
         >
           <BsLinkedin />
+          <span className="tooltiptext text-xs">Linkedin Profile</span>
         </a>
 
         {/* GitHub profile link */}
         <a
-          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer"
-          href={`${introData.githubUrl}`}
+          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip"
+          href={introData.githubUrl}
           target="_blank"
         >
           <FaGithubSquare />
+          <span className="tooltiptext text-xs">Github Profile</span>
+        </a>
+
+        {/* Medium profile link */}
+        <a
+          className="bg-slate-200 text-slate-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full border-[0.2rem] border-slate-700 outline-none hover:scale-[1.15] hover:text-slate-900 hover:border-slate-900 transition cursor-pointer tooltip"
+          href={introData.mediumUrl}
+          target="_blank"
+        >
+          <BsMedium />
+          <span className="tooltiptext text-xs">Medium Profile</span>
         </a>
       </motion.div>
     </section>

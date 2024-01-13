@@ -57,6 +57,7 @@ export const introData = {
   cvFilePath: "/files/CV.pdf",
   linkedinUrl: "https://www.linkedin.com/in/amit-sen-bb156428/",
   githubUrl: "https://github.com/ronstorm",
+  mediumUrl: "https://amit-sen.medium.com/",
 } as const;
 
 // Data for professional experiences, including titles, locations, descriptions, icons, and dates
