@@ -20,11 +20,11 @@ export default function Skills() {
       className="scroll-mt-28 max-w-[53rem] mx-auto text-center mb-28 sm:mb-0" // Styling: top margin for scroll, max width, centering, and text alignment
     >
       <SectionHeading>{skillsData.pageTitle}</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-3 text-slate-800 text-xs sm:text-lg">
+      <ul className="flex flex-wrap justify-center gap-3 text-slate-800 dark:text-slate-300 text-xs sm:text-lg">
         {skillsData.data.map((skill, index) => (
           <motion.li
             key={index}
-            className="bg-slate-100 my-border-slate-300 rounded-xl px-5 py-3"
+            className="bg-slate-50 bg-opacity-50 dark:bg-opacity-10 my-border-slate-300 rounded-xl px-5 py-3"
             variants={fadeInAnimationVariants} // Animation variants
             initial="initial" // Start state
             whileInView="animate" // Animate when in view

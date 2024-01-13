@@ -9,13 +9,19 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { experienceData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
+import { useTheme } from "@/context/theme-context";
 
 export default function Experience() {
   // This hook is used to keep track of whether the section is in view
   const { ref } = useSectionInView(experienceData.pageRoute, 0.2);
+  const { theme } = useTheme();
 
   return (
-    <section ref={ref} id={experienceData.pageId} className="scroll-mt-28 mb-28">
+    <section
+      ref={ref}
+      id={experienceData.pageId}
+      className="scroll-mt-28 mb-28"
+    >
       <SectionHeading>{experienceData.pageTitle}</SectionHeading>
       <VerticalTimeline animate={true} lineColor="#94a3b8">
         {experienceData.data.map((item, index) => (
@@ -24,19 +30,23 @@ export default function Experience() {
               className="vertical-timeline-element--work"
               visible={true}
               contentStyle={{
-                background: "#f3f4f6",
+                background:
+                  theme === "light" ? "rgba(255, 255, 255, 0.5)" : "rgba(255, 255, 255, 0.05)",
                 boxShadow: "none",
                 border: "1px solid rgba(0, 0, 0, 0.05)",
                 textAlign: "left",
                 padding: "1.3rem 2rem",
               }}
               contentArrowStyle={{
-                borderRight: "0.4rem solid #9ca3af",
+                borderRight:
+                  theme === "light"
+                    ? "0.4rem solid #9ca3af"
+                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
               }}
               date={item.date}
               icon={item.icon}
               iconStyle={{
-                background: "white",
+                background: theme === "light" ? "#f1f5f9" : "#475569",
                 fontSize: "1.5rem",
               }}
             >
@@ -45,7 +55,7 @@ export default function Experience() {
                 {item.company}
               </p>
               <p className="!mt-1 !font-thin">{item.location}</p>
-              <p className="!mt-1 !font-normal text-slate-700">
+              <p className="!mt-1 !font-normal text-slate-700 dark:text-slate-300">
                 {item.description}
               </p>
             </VerticalTimelineElement>
