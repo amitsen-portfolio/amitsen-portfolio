@@ -118,7 +118,7 @@ export const experienceData =  {
       description:
         "I was a Research Assistant in the Software Engineering Research Team, focusing on Mobile Profiling Data Analysis, and worked with Machine Learning and Big Data concepts.",
       icon: React.createElement(CgWorkAlt),
-      date: "2016 - 2018",
+      date: "2014 - 2016",
     },
     {
       title: "Software Engineer",
